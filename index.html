@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Diario di lettura</title>
+  <style>
+    body { margin: 20px; font-family: sans-serif; }
+    #immagine { width: 120px; height: 120px; border: 1px solid #ccc; margin-top: 10px; }
+    table, th, td { border: 1px solid black; border-collapse: collapse; padding: 5px; text-align: center; }
+    .gruppo-radio { margin: 5px 0; }
+  </style>
+</head>
+<body>
+  <h1>Diario di lettura della classe</h1>
+
+  <form onsubmit="return false;">
+    <p>Titolo: <input type="text" id="titolo"></p>
+    <p>Autore: <input type="text" id="autore"></p>
+
+    <!-- Genere tramite radio button invece del menu a tendina -->
+    <p>Genere:
+      <label><input type="radio" name="genere" value="Avventura"> Avventura</label>
+      <label><input type="radio" name="genere" value="Giallo"> Giallo</label>
+      <label><input type="radio" name="genere" value="Fantasy"> Fantasy</label>
+      <label><input type="radio" name="genere" value="Storico"> Storico</label>
+    </p>
+
+    <p>Formato:
+      <label><input type="radio" name="formato" value="Cartaceo"> Cartaceo</label>
+      <label><input type="radio" name="formato" value="Ebook"> Ebook</label>
+    </p>
+
+    <p>Stelle (1-5): <input type="number" id="stelle" min="1" max="5"></p>
+
+    <p><label><input type="checkbox" id="consigliato"> Lo consiglio ai compagni</label></p>
+
+    <p><button type="button" onclick="registra()">Registra</button></p>
+  </form>
+
+  <p id="messaggio" style="color: red; font-weight: bold;"></p>
+
+  <img id="immagine" src="" alt="">
+
+  <h2>Libri registrati</h2>
+  <ul id="elenco"></ul>
+
+  <h2>Conteggio per genere</h2>
+  <table>
+    <tr>
+      <th>Avventura</th><th>Giallo</th><th>Fantasy</th><th>Storico</th>
+    </tr>
+    <tr>
+      <td id="conta-avventura">0</td>
+      <td id="conta-giallo">0</td>
+      <td id="conta-fantasy">0</td>
+      <td id="conta-storico">0</td>
+    </tr>
+  </table>
+
+  <p id="media"></p>
+  <p id="preferito"></p>
+
+  <script src="dist/main.js"></script>
+</body>
+</html>
